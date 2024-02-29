@@ -1,5 +1,6 @@
 from CuentaAhorros import CuentaAhorros
 from CuentaCorriente import CuentaCorriente
+from CDT import CDT 
 
 class SimuladorBancario:
     # Aqui va el codigo
@@ -15,6 +16,7 @@ class SimuladorBancario:
     ---------------------------------'''
     cuentaahorros = CuentaAhorros()
     cuentacorriente = CuentaCorriente()
+    cuentacdt = CDT()
 
     '''-----------------------------
     # Metodos
@@ -39,24 +41,32 @@ class SimuladorBancario:
         # 
         return ''
 
-    def ConsignarCuentaCorriente(self,saldo):
-        return self.cuentacorriente.ConsigarValor()
+    def ConsignarCuentaCorriente(self,nvalor):
+        return self.cuentacorriente.ConsigarValor(nvalor)
 
 
     def CalcularSaldoTotal(self):
-        return 'El saldo total es de: '+self.cuentaahorros.ConsultarSaldo() + self.cuentacorriente.ConsultarSaldo()
+        return self.cuentaahorros.ConsultarSaldo() + self.cuentacorriente.ConsultarSaldo() + self.cuentacdt.ConsultarSaldo()
     
-    def PasarAhorrosaCorriente(self):
-        import self.cuentaahorros, self.cuentacorriente, CuentaCorriente
+    def PasarAhorrosACorriente(self):
+        # Forma 1
+        self.cuentacorriente.ConsigarValor(self.cuentaahorros.ConsultarSaldo()) 
+        self.cuentaahorros.RetirarValor(self.cuentaahorros.ConsultarSaldo())
+        # Forma 2
+        saldoAhorros = self.cuentaahorros.ConsultarSaldo()
+        self.ConsignarCuentaCorriente(saldoAhorros)
+        self.cuentaahorros.RetirarValor(self, saldoAhorros)
 
     def ConsultarSaldoCorriente(self):
-        return self.cuentacorriente.ConsultarSaldo()
+        return 'Tu saldo es: '+self.cuentacorriente.ConsultarSaldo()
 
-    def RetirarTodo(self):
-        # Codigo
-        # self.cuentacorriente.RetirarValor() +- self.cuentaahorros.RetirarValor()
-        return 0
-    
+    def RetirarTodo(self, monto):
+        total = self.CalcularSaldoTotal()
+        self.cuentacorriente.RetirarValor(self.cuentacorriente.ConsultarSaldo())
+        self.cuentaahorros.RetirarValor(self.cuentaahorros.ConsultarSaldo())
+         
     def DuplicarAhorro(self):
-        self.saldo.CuentaAhorros = self.saldo.CuentaAhorros() * 2
-        return self.saldo.CuentaAhorros
+        # Forma 1
+        self.cuentaahorros.ConsigarValor(self.cuentaahorros.ConsultarSaldo())
+        # Forma 2 no se utiliza
+        self.cuentaahorros.saldo *= 2

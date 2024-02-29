@@ -26,6 +26,13 @@ class Empleado:
     # Metodos
     ----------------------------------'''
     
+    def __init__(self, nombre, apellido, sexo, salario):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.sexo = sexo
+        self.salario = salario
+
+
     def CambiarSalario(self, nuevoSalario):
         # Aqui va el codigo
         return 0

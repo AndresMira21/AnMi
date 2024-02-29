@@ -11,14 +11,10 @@ class CuentaAhorros:
     --------------------------------------'''
 
     def ConsultarSaldo(self):
-        return self.saldo 
+        return self.saldo
 
-    def ConsigarValor(self, saldoAhorros):
-        nsaldoAhorros = self.saldoAhorros + ''
-        self.saldoAhorros = nsaldoAhorros
-        return ''
+    def ConsigarValor(self, nvalor):
+        self.saldo += nvalor 
     
-    def RetirarValor(self, saldoAhorros):
-        nsaldoAhorros = self.saldoAhorros * ''
-        self.saldoAhorros = nsaldoAhorros
-        return '' 
+    def RetirarValor(self, retvalor):
+        self.saldo -= retvalor 

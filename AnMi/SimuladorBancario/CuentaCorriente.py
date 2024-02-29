@@ -3,7 +3,7 @@ class CuentaCorriente:
     '''--------------------------------
     # Atributos
     --------------------------------'''
-    saldo = ""
+    saldo = 0
 
     '''--------------------------------------
     # Metodos
@@ -12,12 +12,8 @@ class CuentaCorriente:
     def ConsultarSaldo(self):
         return self.saldo
 
-    def ConsigarValor(self, saldoCorriente):
-        nsaldoCorriente = self.saldoCorriente + ''
-        self.saldoCorriente = nsaldoCorriente
-        return ''
+    def ConsigarValor(self, nvalor):
+        self.saldo += nvalor 
     
-    def RetirarValor(self, saldoCorriente):
-        nsaldoCorriente = self.saldoCorriente * ''
-        self.saldoCorriente = nsaldoCorriente
-        return ''
+    def RetirarValor(self, retvalor):
+        self.saldo -= retvalor 
