@@ -50,7 +50,13 @@ class SimuladorBancario:
         import self.cuentaahorros, self.cuentacorriente, CuentaCorriente
 
     def ConsultarSaldoCorriente(self):
-        return self.cuentacorriente.ConsultarSaldo() * 2 
+        return self.cuentacorriente.ConsultarSaldo()
 
     def RetirarTodo(self):
+        # Codigo
+        # self.cuentacorriente.RetirarValor() +- self.cuentaahorros.RetirarValor()
         return 0
+    
+    def DuplicarAhorro(self):
+        self.saldo.CuentaAhorros = self.saldo.CuentaAhorros() * 2
+        return self.saldo.CuentaAhorros
