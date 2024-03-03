@@ -16,4 +16,5 @@ class CuentaCorriente:
         self.saldo += nvalor 
     
     def RetirarValor(self, retvalor):
+        retvalor = retvalor * 0.01
         self.saldo -= retvalor 

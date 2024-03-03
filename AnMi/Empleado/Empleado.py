@@ -8,6 +8,7 @@ class Empleado:
     
     nombre = ''
     apellido = ''
+    numerohijos = 0
     '''------------------------------------
     # 1 = Masculino 2 = Femenino
     ------------------------------------'''
@@ -26,13 +27,29 @@ class Empleado:
     # Metodos
     ----------------------------------'''
     
-    def __init__(self, nombre, apellido, sexo, salario):
+    def __init__(self, nombre, apellido, sexo, salario, numerohijos):
         self.nombre = nombre
         self.apellido = apellido
         self.sexo = sexo
         self.salario = salario
+        self.numerohijos = numerohijos
 
+    def ConsultarNumeroHijos(self):
+        return self.numerohijos
+    
+    def CalcularAuxilio(self):
+        auxilio = self.ConsultarSalario * self.numerohijos * 0.05
+        return auxilio
+        #self.numerohijos *= 0.05
+        #self.ConsultarSalario *= self.numerohijos
 
+    def CalcularAuxilioPorcentaje(self):
+        return ''
+    
+    def DiferenciaSalario(self, empleado2):
+        comparacion = abs(self.ConsultarSalario - empleado2.salario)
+        return comparacion  
+        
     def CambiarSalario(self, nuevoSalario):
         # Aqui va el codigo
         return 0
@@ -78,14 +95,14 @@ class Empleado:
         # Forma 2
         # return self.salario * 12
 
-        def ConsultarDiaCumpleanios(self):
-            return 'El dia de su cumpleaños es : '+self.fechaNacimiento.ConsultarDia()
+    def ConsultarDiaCumpleanios(self):
+        return 'El dia de su cumpleaños es : '+self.fechaNacimiento.ConsultarDia()
 
-        def CalcularImpuesto(self):
-            # Forma 1
-            total = self.CalcularSalarioAnual()
-            return (total * 19.5) / 100
+    def CalcularImpuesto(self):
+        # Forma 1
+        total = self.CalcularSalarioAnual()
+        return (total * 19.5) / 100
 
-            # Forma 2
-            #return self.CalcularSalarioAnual() * 0.195
+        # Forma 2
+        #return self.CalcularSalarioAnual() * 0.195
         

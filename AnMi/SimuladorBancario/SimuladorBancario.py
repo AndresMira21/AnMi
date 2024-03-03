@@ -7,9 +7,14 @@ class SimuladorBancario:
     '''-----------------------------
     # Atributos
     -----------------------------'''
-    Cedula = ""
-    Nombres = ""
-    MesActual = ""
+    cedula = ""
+    nombres = ""
+    mesactual = ""
+    
+    '''----------------------------
+     # VIP = 1 Platino = 2 Normal = 3
+    ----------------------------'''
+    tipocliente = 0 
 
     '''---------------------------------
     # Asociaciones 
@@ -21,6 +26,16 @@ class SimuladorBancario:
     '''-----------------------------
     # Metodos
     -----------------------------'''
+
+    def __init__(self, cedula, nombres , mesactual, tipocliente):
+        self.cedula = cedula
+        self.nombres = nombres
+        self.mesactual = mesactual
+        self.tipocliente = tipocliente
+
+    def CambiarTipoCliente(self, ntipocliente):
+        self.tipocliente = ntipocliente
+
     def ConsignarValor(self, ValoraConsignar):
         # Codigo
 
