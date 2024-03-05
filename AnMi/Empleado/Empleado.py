@@ -38,13 +38,14 @@ class Empleado:
         return self.numerohijos
     
     def CalcularAuxilio(self):
-        auxilio = self.ConsultarSalario * self.numerohijos * 0.05
+        auxilio = self.ConsultarSalario * self.ConsultarNumeroHijos * 0.05
         return auxilio
         #self.numerohijos *= 0.05
         #self.ConsultarSalario *= self.numerohijos
 
-    def CalcularAuxilioPorcentaje(self):
-        return ''
+    def CalcularAuxilioPorcentaje(self,porcentajesalarial):
+        auxilio = self.ConsultarSalario * self.ConsultarNumeroHijos * porcentajesalarial
+        return 'auxilio'
     
     def DiferenciaSalario(self, empleado2):
         comparacion = abs(self.ConsultarSalario - empleado2.salario)
