@@ -115,37 +115,43 @@ class Producto:
             self.__valorUnitario += self.__valorUnitario*0.03
 
     def HacerPedido(self, cantidad):
-        if cantidad <self.__cantidadBodega and self.__cantidadBodega < self.__cantidadMinima:
-            return 'recibirxd'
-        else:
+        if self.__cantidadBodega < self.__cantidadMinima:
+            self.__cantidadBodega + cantidad
+            return 'Si hay suficiente producto'
     
     def CambiarValorUnitario(self):
-        if(self.__valorUnitario == self.__tipo=='FARMACIA' or self.__tipo=='PAPELERIA'):
-            self.__valorUnitario -= self.__valorUnitario*0.1
-        elif(self.__valorUnitario == self.__tipo=='SUPERMERCADO'):
+        if Tipo.FARMACIA | Tipo.PAPELERIA:
+            self.__valorUnitario -= self.__valorUnitario *0.1
+        elif Tipo.SUPERMERCADO:
             self.__valorUnitario += self.__valorUnitario*0.05
+
+    def nombreTipoProducto(self):
+        if self.__tipo == Tipo.PAPELERIA:
+            return 'EL producto es de tipo Papeleria'
+        elif self.__tipo == Tipo.SUPERMERCADO:
+            return 'EL producto es de tipo Supermercado'
+        elif self.__tipo == Tipo.FARMACIA:
+            return 'El producto es de tipo Farmacia'
+        else:
+            return 'El producto es de tipo desconocido'
+    
+    def aumentarValorUnitario(self):
+        if self.__tipo == Tipo.FARMACIA:
+            self.__valorUnitario += self.__valorUnitario*0.01
+        elif self.__tipo == Tipo.SUPERMERCADO:
+            self.__valorUnitario += self.__valorUnitario*0.03
+        elif self.__tipo == Tipo. PAPELERIA:
+            self.__valorUnitario += self.__valorUnitario*0.02
+
     
 
+#Para la clase tienda
+#vender una cierta cantidad de producto cuyo nombre es igual al recibido como parametro, el metodo retorna el numero de unidades efectivamente vendidas, 
+#suponga que el nombre que se recibe com parametro corresponde a uno de los producto de la tienda. utilice el metodo vender de la clase Producto como parte de su solucion
+#el metodo se llamara venderProducto y recibe dos parametros: nombreproducto y cantidad
 
-
-        para la clase Producto 
-        aumentar el vallor unitario del producto utilizando la siuiente politica: 
-        si el producto cuesta menos de mil aumentar el 1% si cuesta entre mil y '5mil' aumentar el 2% si cuesta mas de '5mil' aumentar el 3%
-        el metodo se llamara subirValorUnitario
-
-        recibir un pedidio solo si en la bodega se tiene menos unidades undicada en el tope minimo en caso contrario el metodo no debe hacer nada
-        el metodo se llama hacerPedido y tiene un parametro
-
-        modificar el precio del producto utilizando la siguiente politica: si el producto es de drogueria o papeleria debe disminuir un 10%, si es de supermercado debe aumentar un 5%, 
-        el metodo se llama cambiarValorUnitario
-
-        Par la clase tienda
-        vender una cierta cantidad de producto cuyo nombre es igual al recibido como parametro, el metodo retorna el numero de unidades efectivamente vendidas, 
-        suponga que el nombre que se recibe com parametro corresponde a uno de los producto de la tienda. utilice el metodo vender de la clase Producto como parte de su solucion
-        el metodo se llamara venderProducto y recibe dos parametros: nombreproducto y cantidad
-
-        calcula el numero de producto de papeleria que se venden en la tienda
-        el metodo se llama cuantosPapeleria
+#calcula el numero de producto de papeleria que se venden en la tienda
+#el metodo se llama cuantosPapeleria
 
 
 

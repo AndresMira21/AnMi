@@ -22,3 +22,41 @@ class Tienda:
     
     def getProducto1(self):
         return self.__producto1
+    
+    def getProducto2(self):
+        return self.__producto2 
+    
+    def getProducto3(self):
+        return self.__producto3
+    
+    def getProducto4(self):
+        return self.__producto4
+    
+    def getdineroEnCaja(self):
+        return self.__dineroEnCaja
+    
+    def venderProducto(self, nombreProducto, cantidad):
+        return
+    
+    def cuantosPapeleria(self):
+        return 0
+
+    def darPrecioProducto(self, pNumeroProducto):
+        if pNumeroProducto == 1:
+            return self.__producto1.getValorUnitario()
+        elif pNumeroProducto == 2:
+            return self.__producto2.getValorUnitario()
+        elif pNumeroProducto == 3:
+            return self.__producto3.getValorUnitario()
+        elif pNumeroProducto == 4:
+            return self.__producto4.getValorUnitario()
+        
+    def darPrecioProducto(self, pNumeroProducto):
+        if pNumeroProducto == self.__producto1.getNombre():
+            return self.__producto1.getValorUnitario()
+        elif pNumeroProducto == self.__producto2.getNombre():
+            return self.__producto2.getValorUnitario()
+        elif pNumeroProducto == self.__producto3.getNombre():
+            return self.__producto3.getValorUnitario()
+        elif pNumeroProducto == self.__producto4.getNombre():
+            return self.__producto4.getValorUnitario()
