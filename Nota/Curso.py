@@ -78,3 +78,20 @@ class curso:
                 menor = nota
         return menor
     
+    def darRangoConMasNota(self):
+        rango1 = 0
+        rango2 = 0
+        rango3 = 0
+        for nota in self.notas:
+            if nota >= 0.0 and nota < 1.99:
+                rango1 += 1
+            elif nota >= 2.0 and nota < 3.49:
+                rango2 += 1
+            elif nota >= 3.5 and nota <= 5.0:
+                rango3 += 1
+        if rango1 >= rango2 and rango1 >= rango3:
+            return 1
+        elif rango2 >= rango1 and rango2 >= rango3:
+            return 2
+        else:
+            return 3
