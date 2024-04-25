@@ -146,4 +146,21 @@ class curso:
                 else:
                     return -1
 
-        
+        def reemplazar(self):
+            i = 0
+
+            for i in len(self.__notas):
+                if self.__notas[i] <= 3.0:
+                    self.__notas[i] = 0
+                    i += 1
+
+        def calcularMinimoSuma30(self):
+            suma = 0
+
+            for i in range(len(self.__notas)):
+                suma += self.__notas[i]
+                if suma > 30:
+                    return i +1
+                else:
+                    return -1            
+                
