@@ -96,71 +96,98 @@ class curso:
         else:
             return 3
 
-        def HayAlgunCinco_uno(self):
-            i = 0
-            hayCinco = False
+    def HayAlgunCinco_uno(self):
+        i = 0
+        hayCinco = False
 
-            while i< len(self.__notas) and not hayCinco:
-                if (self.__notas[i] == 5):
-                    hayCinco=True
-                i+= 1
-
-            return hayCinco
-        
-        def HayAlgunCinco_dos(self):
-            hayCinco=False 
-
-            for i in range(len(self.__notas)):
-                if (self.__notas[i] == 5):
-                    hayCinco = True
-                    break
+        while i< len(self.__notas) and not hayCinco:
+            if (self.__notas[i] == 5):
+                hayCinco=True
+            i+= 1
 
             return hayCinco
         
-        def HayAlgunCinco_tres(self):
-            hayCinco = False
+    def HayAlgunCinco_dos(self):
+        hayCinco=False 
 
-            for nota in self.__notas:
-                if nota ==5:
-                    hayCinco = True
-                    break
-
-            return hayCinco
-        
-        def notasiguales(self):
-            notasiguales = 0
-            for nota in self.__notas:
-                if (nota == 1.5):
-                    nota = 2.5
-                    notasiguales +=1
+        for i in range(len(self.__notas)):
+                f (self.__notas[i] == 5):
+                hayCinco = True
                 break
 
-        def secuencia(self):
-            indice = 0
+        return hayCinco
+        
+    def HayAlgunCinco_tres(self):
+        hayCinco = False
+
+        for nota in self.__notas:
+            if nota ==5:
+                hayCinco = True
+                break
+
+        return hayCinco
+        
+    def notasiguales(self):
+        notasiguales = 0
+        for nota in self.__notas:
+            if (nota == 1.5):
+                nota = 2.5
+                notasiguales +=1
+            break
+
+    def secuencia(self):
+        indice = 0
             
-            for i in range(len(self.__notas)):
-                if (self.__notas[i] == 5):
-                    indice += 1
-                if (indice == 3):
-                    return i
+        for i in range(len(self.__notas)):
+            if (self.__notas[i] == 5):
+                indice += 1
+            if (indice == 3):
+                return i
+            else:
+                return -1
+
+    def reemplazar(self):
+        i = 0
+
+        for i in len(self.__notas):
+            if self.__notas[i] <= 3.0:
+                self.__notas[i] = 0
+                i += 1
+
+    def calcularMinimoSuma30(self):
+        suma = 0
+
+        for i in range(len(self.__notas)):
+            suma += self.__notas[i]
+            if suma > 30:
+                return i +1
+            else:
+                return -1 
+
+    def NotaMasRecurrente(self):
+        notaMasRecurrente = 0
+        cantidadOcurrente = 0
+    
+        for nota in self.__notas:
+            contador = 0
+            for nota2 in self.__notas:
+                if nota2 == nota:
+                    contador += 1
+            if contador > cantidadOcurrente:
+                notaMasRecurrente = nota
+                cantidadOcurrente = contador
+        return notaMasRecurrente
+        
+        #si hay vaaris¿ que lo cumplan para retornar cualquier tal que la mitad de las notas sean menores que ellas. el morodo se llamara noramediaa
+    def NotaMediana(self):
+        notaMayor = 0
+        notaMenor = 0
+    
+        for nota in self.__notas:
+            for nota2 in self.__notas:
+                if nota < 3.0:
+                    notaMenor += 1
                 else:
-                    return -1
+                    notaMayor += 1
+        return (notaMenor + notaMayor)/2
 
-        def reemplazar(self):
-            i = 0
-
-            for i in len(self.__notas):
-                if self.__notas[i] <= 3.0:
-                    self.__notas[i] = 0
-                    i += 1
-
-        def calcularMinimoSuma30(self):
-            suma = 0
-
-            for i in range(len(self.__notas)):
-                suma += self.__notas[i]
-                if suma > 30:
-                    return i +1
-                else:
-                    return -1            
-                
