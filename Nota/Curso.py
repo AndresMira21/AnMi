@@ -111,8 +111,8 @@ class curso:
         hayCinco=False 
 
         for i in range(len(self.__notas)):
-                f (self.__notas[i] == 5):
-                hayCinco = True
+                if (self.__notas[i] == 5):
+                    hayCinco = True
                 break
 
         return hayCinco
@@ -180,14 +180,19 @@ class curso:
         
         #si hay vaaris¿ que lo cumplan para retornar cualquier tal que la mitad de las notas sean menores que ellas. el morodo se llamara noramediaa
     def NotaMediana(self):
-        notaMayor = 0
+        notaMediana = len(self.__notas)/2
         notaMenor = 0
-    
+
         for nota in self.__notas:
+            contador = 0
             for nota2 in self.__notas:
-                if nota < 3.0:
-                    notaMenor += 1
-                else:
-                    notaMayor += 1
-        return (notaMenor + notaMayor)/2
+                if nota2 <= nota:
+                    contador += 1
+
+            if(notaMediana <= contador) or (notaMediana <= (contador + 1)):
+                notaMenor = nota
+            elif (notaMediana <= (contador - 1)):
+                notaMenor = nota
+
+        return notaMenor
 
